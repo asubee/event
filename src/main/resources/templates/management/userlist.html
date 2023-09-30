@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head th:replace="~{/management/common::htmlheader(title='ユーザー一覧')}">
+    </head>
+    <body class="sb-nav-fixed">
+       <!-- ヘッダ -->
+       <div th:replace="~{/management/common::header}"></div>
+
+       <div id="layoutSidenav">
+
+           <!-- サイドナビゲーション -->
+           <div th:replace="~{/management/common::sidemenu}"></div>
+           
+           <!-- メインコンテンツ -->
+           <div id="layoutSidenav_content">
+               <main>
+                   <div class="container-fluid px-4">
+                        <h1 class="mt-4">ユーザー一覧</h1>
+                        <div class="text-primary col-sm-4" th:if="${msg != null}" th:text="${msg}"></div>
+                        <table class="datatable-table">
+                        <thead class="table-light">
+                        <tr>
+                          <th>ユーザID</th>
+                          <th>名前</th>
+                          <th>メールアドレス</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="list : ${userList}">
+                            <td><span th:text="${list.userid}"></span><br>
+                                <a th:href="@{'/management/usermodify?userid=' + ${list.userid}}">編集</a> &nbsp; | &nbsp; 
+                                <a th:href="@{'/management/userdelete?userid=' + ${list.userid}}">削除</a> 
+                            </td>
+                            <td th:if="${list.familyname != null}" th:text="${list.familyname} + ' ' + ${list.lastname}">                  
+                            </td>
+                            <td th:if="${list.mailaddress != null}" th:text="${list.mailaddress}"></td>
+                        </tr>
+                        </tbodY>
+                    </table>
+
+                    </div>
+                </main>
+       </div>
+        <script src="/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>

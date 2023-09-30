@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head th:replace="~{/management/common::htmlheader(title='エラー')}">
+    </head>
+    <body class="sb-nav-fixed">
+        <!-- ヘッダ -->
+        <div th:replace="~{/management/common::header}"></div>
+
+        <div id="layoutSidenav">
+
+            <!-- サイドナビゲーション -->
+            <div th:replace="~{/management/common::sidemenu}"></div>
+
+            <!-- メインコンテンツ -->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">エラー</h1>
+                        <table>
+                            <tr th:if="${error} != null">
+                                <td th:text="${error}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+
+    </body>
+</html>

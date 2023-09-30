@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head th:fragment="htmlheader(title)">
+        <meta charset="utf-8" />
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="/css/common.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <title th:text="${title} + ' | おせんべいの会社を経営しよう'"> 各ページタイトル | おせんべいの会社を経営しよう"></title>
+    </head>
+    <body class="sb-nav-fixed">
+    <!-- ヘッダーバー -->
+    <nav th:fragment="header" class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index"><img src="/img/favicon.png" width="30px" style="margin:0 0 0 10px;"> idea Lab.</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar-->
+        <div class="navbar-nav float-left ms-auto me-3 me-lg-4 text-white">こんにちは、<span sec:authentication="name"></span>さん</div>
+        <ul class="navbar-nav float-left me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li>
+                        <form method="post" action="#" th:action="@{/management/usermodify}" th:object="${UserDTO}">
+                            <input class="dropdown-item" type="submit" name="self"  value="ユーザ設定">
+                        </form>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><form th:action="@{/management/logout}" method="post"><input class="dropdown-item" type="submit" value="ログアウト"></form></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+            <!-- サイドメニュー -->
+            <div th:fragment="sidemenu" id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+                    <!-- サイドメニュー -->
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading border-bottom">ゲーム実行</div>
+                            <a class="nav-link" id="/" href="/" >
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                ゲーム画面
+                            </a>
+                            <a class="nav-link" id="/management/monitoring" href="/management/monitoring">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                モニタリング
+                            </a>
+                            <div class="sb-sidenav-menu-heading border-bottom" >ゲーム設定</div>
+                            <a class="nav-link" id="/management/monitoring" href="/management/monitoring">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                ゲーム初期設定
+                            </a>
+                            <a class="nav-link" id="/management/monitoring" href="/management/monitoring">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                表示メッセージ設定
+                            </a>
+                            <a class="nav-link" id="/management/monitoring" href="/management/monitoring">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                チーム設定
+                            </a>
+                            <a class="nav-link" id="/management/monitoring" href="/management/monitoring">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                カード設定
+                            </a>
+                            <div class="sb-sidenav-menu-heading border-bottom">その他</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                ユーザー
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" id="/management/register" href="/management/register">新規登録</a>
+                                    <a class="nav-link" id="/management/userlist" href="/management/userlist">ユーザー一覧</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small text-white">Copyright &copy; 2023 idea Lab.</div>
+                    </div>
+                </nav>
+            </div>
+            
+            <!-- メイン文 -->
+            <div id="layoutSidenav_content">
+                <main>
+
+                </main>
+            </div>
+
+            <!-- フッター -->
+            <div th:fragment="footer" id="layoutAuthentication_footer">
+                <footer class="py-4 bg-corporate mt-auto fixed-bottom">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-white">Copyright &copy; 2023 idea Lab.</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+    </div>
+    <script src="/js/scripts.js"></script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head th:replace="~{/management/common::htmlheader(title='ユーザ設定編集')}">
+    </head>
+    <body class="sb-nav-fixed">
+        <!-- ヘッダ -->
+        <div th:replace="~{/management/common::header}"></div>
+
+        <div id="layoutSidenav">
+
+            <!-- サイドナビゲーション -->
+            <div th:replace="~{/management/common::sidemenu}"></div>
+
+            <!-- メインコンテンツ -->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">ユーザ設定</h1>
+                        <p>ユーザ設定を編集します。</p>
+                        <div class="text-primary col-sm-4" th:if="${msg != null}" th:text="${msg}"></div>
+                        <div class="row justify-content-md-left">
+                        <form method="post" action="#" th:action="@{/management/usermodify}" th:object="${UserDTO}">
+                        <input type="hidden" name="userid" th:value="${user.userid}">
+                        <table class="table table-borderless">
+                            <tr><td class="col-md-2">ユーザID</td><td><input class="form-control max-width-30" id="userid" name="userid" type="text" disabled th:value="${user.userid}"></td></tr>
+                            <tr><td class="col-md-2">姓</td><td><input class="form-control max-width-30" id="familyname" name="familyname" type="text" th:value="${user.familyname}"></td></tr>
+                            <tr><td class="col-md-2">名</td><td><input class="form-control max-width-30" id="lastname" name="lastname" type="text" th:value="${user.lastname}"></td></tr>
+                            <tr><td class="col-md-2">メールアドレス</td><td><input class="form-control max-width-30" id="mailaddress" name="mailaddress" type="text" th:value="${user.mailaddress}"></td></tr>
+                        </table>
+                        <input class="btn btn-primary" type="submit" name="update" value="更新">
+                        </form>
+                         </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+
+    </body>
+</html>

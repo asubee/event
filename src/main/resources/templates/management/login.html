@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head th:replace="~{/management/common::htmlheader(title='ログイン')}">
+    </head>
+    <body class="bg-gray-100">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5 bg-white">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">管理画面 ログイン</h3></div>   
+                                    <div class="card-body bg-white">
+                                            <p th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null"
+                                                th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}">
+                                                ログインエラーメッセージ</p>
+                                            <div th:if="${param.logout}">ログアウトしました。</div>
+                                            <div th:if="${logout}">ログアウトしました。</div>
+                                            <form th:action="@{/management/login}" method="post">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputUserID" type="text" placeholder="userID" name="username"/>
+                                                <label for="inputUserID">ユーザID</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" name="password"/>
+                                                <label for="inputPassword">パスワード</label>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-end mt-4 mb-0">
+                                                <input type="submit" class="btn btn-primary" value="ログイン">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer text-right py-3">
+                                        <div class="small"><a href="/">← トップに戻る</a></div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <!-- フッター -->
+            <div th:replace="~{/management/common::footer}"></div>
+        </div>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
