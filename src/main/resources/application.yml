@@ -6,31 +6,30 @@ spring:
         username: postgres
         password: postgres
         driver-class-name : org.postgresql.Driver
-
 event:
-    quota: 
-        ggp_quota_turn: 18
-        ggp_quota_co2: 1500
-        ggp_init_money: 1000
-        ggp_init_quota_co2_perteam: 600
-        ggp_init_sales: 1000
-        ggp_init_earth: 2
-        ggp_init_perteam: 3
-        ggp_init_co2_gameover: disabled
+    init: 
+        init_quota_turn: 18
+        init_quota_co2: 1500
+        init_money: 1000
+        init_quota_co2_perteam: 600
+        init_sales: 1000
+        init_earth: 2
+        init_perteam: 3
+        init_co2_gameover: false
     event:
-        ggp_event_tree: enable
-        ggp_event_tree_quantity: 2
-        ggp_event_sales: enable
-        ggp_event_sales_magnificant: 2
-        ggp_event_not_clean_energy:
+        event_tree: true
+        event_tree_quantity: 2
+        event_sales: true
+        event_sales_magnificant: 2
+        event_not_clean_energy:
             - factory
             - factory_new
             - factory_automation
-        ggp_event_emission_trading: 300
-        ggp_event_reduction_quota_co2: 200
-        ggp_event_subsidy: 200
-        ggp_event_tax: -200
-        ggp_other_clean_energy: 50
-        ggp_other_solar_panel: 50
+        event_emission_trading: 300
+        event_reduction_quota_co2: 200
+        event_subsidy: 200
+        event_tax: -200
+        event_other_clean_energy: 50
+        event_other_solar_panel: 50
 
     
