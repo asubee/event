@@ -22,7 +22,7 @@
                         <form method="post" action="#" th:action="@{/management/usermodify}" th:object="${UserDTO}">
                         <input type="hidden" name="userid" th:value="${user.userid}">
                         <table class="table table-borderless">
-                            <tr><td class="col-md-2">ユーザID</td><td><input class="form-control max-width-30" id="userid" name="userid" type="text" disabled th:value="${user.userid}"></td></tr>
+                            <tr><td class="col-md-2">ユーザID</td><td><input class="form-control max-width-30" type="text" disabled th:value="${user.userid}"></td></tr>
                             <tr><td class="col-md-2">姓</td><td><input class="form-control max-width-30" id="familyname" name="familyname" type="text" th:value="${user.familyname}"></td></tr>
                             <tr><td class="col-md-2">名</td><td><input class="form-control max-width-30" id="lastname" name="lastname" type="text" th:value="${user.lastname}"></td></tr>
                             <tr><td class="col-md-2">メールアドレス</td><td><input class="form-control max-width-30" id="mailaddress" name="mailaddress" type="text" th:value="${user.mailaddress}"></td></tr>

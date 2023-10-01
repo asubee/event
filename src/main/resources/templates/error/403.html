@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head th:replace="~{/management/common::htmlheader(title='403 Forbidden Error')}">
+    </head>
+    <body>
+        <div id="layoutError">
+            <div id="layoutError_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="text-center mt-4">
+                                    <h1 class="display-1">403</h1>
+                                    <p class="lead">Forbidden Error</p>
+                                    <p>認証されていないか、不正な認証です。ログインしなおしてください。</p>
+                                    <a href="/management/index">
+                                        <i class="fas fa-arrow-left me-1"></i>
+                                        Return to Dashboard
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <!-- フッター -->
+            <div th:replace="~{/management/common::footer}"></div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

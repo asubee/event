@@ -92,6 +92,9 @@ public class UserIDMapper {
     }
 
     public void modifyUser(UserID user) throws Exception{
+        if(user.getUserid() == null){
+            throw new Exception("編集するユーザIDが空です");
+        }
         String sql = "update " + CommonMapper.TABLE_NAME_USERID  
         + " set familyname = ?, lastname = ?, mailaddress = ?, update_date = current_timestamp where userid = ?;";
         log.info("[modifyUser]" + sql + " userID: " + user.getUserid());
